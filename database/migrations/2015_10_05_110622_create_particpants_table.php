@@ -13,14 +13,10 @@ class CreateConversationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('conversations', function (Blueprint $table) {
+        Schema::create('participants', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_one')->nullable();
-            $table->integer('user_two')->nullable();
-            $table->text('title')->nullable();
-            $table->text('description')->nullable();
-            $table->text('image')->nullable();
-            $table->integer('is_group')->default(0);
+            $table->integer('conversation_id');
+            $table->integer('user_id');
             $table->boolean('status');
             $table->timestamps();
         });
@@ -33,6 +29,6 @@ class CreateConversationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('conversations');
+        Schema::dropIfExists('participants');
     }
 }

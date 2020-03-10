@@ -180,6 +180,32 @@ Please see the API Doc.
 - [deleteForever](https://github.com/nahid/talk#deleteforever)
 - [deleteConversations](https://github.com/nahid/talk#deleteconversations)
 
+### New Added API
+
+- [newConversationGroup](#newConversationGroup)
+
+### newConversationGroup
+
+`newConversationGroup` methods creates a new group conversation and returns conversation
+
+**Syntax**
+
+```php
+    int newConversationGroup($title = null, $description = null, $image = null)
+```
+
+
+### newConversationGroup
+
+`add` methods creates a new group conversation
+
+**Syntax**
+
+```php
+    //where participants array contain user id that will be part of conversation 
+    int newConversationGroup($participants = []);
+```
+
 
 ### setAuthUserId
 

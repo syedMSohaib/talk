@@ -160,6 +160,52 @@ class Talk
     }
 
     /**
+     * make new group conversation with currently loggedin user.
+     *
+     * @param int $receiverId
+     *
+     * @return int
+     */
+    public function newConversationGroup($title = null, $description = null, $image = null)
+    {
+        $conversation = $this->conversation->create([
+            'user_one' => $title,
+            'user_two' => $description,
+            'user_two' => $image,
+            'is_group' => 1,
+            'status' => 1,
+        ]);
+
+        if ($conversation) {
+            return $conversation->id;
+        }
+    }
+
+
+        /**
+     * make new group conversation with currently loggedin user.
+     *
+     * @param int $receiverId
+     *
+     * @return int
+     */
+    public function addParticipantToConversation($conversation_id, $participants = [])
+    {
+        $conversationId = $this->isConversationExists($conversation_id);
+        if ($conversationId === false) {
+            $conversation = $this->conversation->addParticipant($participants);
+
+            if ($conversation) {
+                return $conversation->id;
+            }
+        }
+
+        return $conversationId;
+    }
+
+
+
+    /**
      * set currently authenticated user id for global usage.
      *
      * @param int $id
@@ -269,6 +315,14 @@ class Talk
 
         return $message;
     }
+
+    /**
+     * add participants to newly created conversation
+     *
+     * @param Array    $participants
+     *
+     * @return \Nahid\Talk\Messages\Message
+     */
 
     /**
      * fetch all inbox for currently loggedin user with pagination.

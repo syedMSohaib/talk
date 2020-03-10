@@ -94,6 +94,8 @@ class ConversationRepository extends Repository
      * @param   int $take
      * @return  collection
      * */
+
+     
     public function threads($user, $order, $offset, $take)
     {
         $conv = new Conversation();

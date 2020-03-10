@@ -12,6 +12,10 @@ class Conversation extends Model
         'user_one',
         'user_two',
         'status',
+        'title',
+        'description',
+        'image',    
+        'is_group'
     ];
 
     /*
@@ -23,6 +27,16 @@ class Conversation extends Model
     {
         return $this->hasMany('Nahid\Talk\Messages\Message', 'conversation_id')
             ->with('sender');
+    }
+
+    /*
+     * make a relation between participants
+     *
+     * return collection
+     * */
+    public function participants()
+    {
+        return $this->hasMany('Nahid\Talk\Participants\Participant', 'conversation_id');
     }
 
     /*

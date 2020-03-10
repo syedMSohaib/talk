@@ -169,9 +169,9 @@ class Talk
     public function newConversationGroup($title = null, $description = null, $image = null)
     {
         $conversation = $this->conversation->create([
-            'user_one' => $title,
-            'user_two' => $description,
-            'user_two' => $image,
+            'title' => $title,
+            'description' => $description,
+            'image' => $image,
             'is_group' => 1,
             'status' => 1,
         ]);

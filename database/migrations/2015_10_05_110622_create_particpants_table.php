@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Migrations\Migration;
 Use Illuminate\Database\Schema\Blueprint;
 
-class CreateConversationsTable extends Migration
+class CreateParticipantsTable extends Migration
 {
     /**
      * Run the migrations.
